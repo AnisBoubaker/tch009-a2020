@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Cours3.dir/main.c.o"
-  "Cours3"
+  "CMakeFiles/Cours3.dir/main.c.obj"
+  "Cours3.exe"
+  "Cours3.exe.manifest"
   "Cours3.pdb"
+  "libCours3.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
