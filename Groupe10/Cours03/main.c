@@ -2,7 +2,48 @@
 #include <stdlib.h>
 
 int main(void) {
-    int choix; //Choix de l'usager
+
+    int x = 2;
+
+    if (x < 25 &&  x > 5)
+    {
+        printf("x est dans l'intervalle ]5,25[\n");
+    }
+    else
+    {
+        printf("x n'est pas dans l'intervalle!\n");
+    }
+
+
+
+    /*
+    int x ;
+
+    printf("Saisir un entier: ");
+    scanf("%d", &x);
+
+    if( x )
+    {
+        printf("La condition est vraie!\n");
+    }
+    else
+    {
+        printf("La condition est fausse!\n");
+    }
+          */
+    
+
+    /*int x ;
+
+
+    x = 2 > 5;
+
+    printf("Valeur de x: %d", x);
+      */
+
+
+
+    /*int choix; //Choix de l'usager
 
     printf("1- Créer un nouveau document\n");
     printf("2- Ouvrir un document existant\n");
@@ -10,8 +51,28 @@ int main(void) {
     printf("Votre choix: ");
     scanf("%d", &choix);
 
+    switch(choix)
+    {
+        case 1:
+            printf("D'accord, on crée un nouveau document!\n");
+            break;
+        case 2:
+            printf("Nous ouvrons un document existant!\n");
+            break;
+        case 3:
+            printf("Au revoir!\n");
+            break;
+        case 4:
+        case 5:
+            printf("Vous avez saisi 4 ou 5, mais ce n'est pas permis!\n");
+            break;
+        default:
+            printf("Mauvaise touche!");
+    }
+    */
+
     //Version sans le switch
-    if(choix == 1)
+    /*if(choix == 1)
     {
         printf("D'accord, on crée un nouveau document!\n");
     }
@@ -26,7 +87,7 @@ int main(void) {
     else
     {
         printf("Mauvaise touche!\n");
-    }
+    }    */
 
     /*int val1, val2, val3; //Trois valeurs saisies
     int max;
