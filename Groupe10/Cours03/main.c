@@ -2,8 +2,48 @@
 #include <stdlib.h>
 
 int main(void) {
+    double abscisse, ordonnee;
+    int cadran;
 
-    int x = 2;
+    printf("Entrez l'abscisse: ");
+    scanf("%lf", &abscisse);
+
+    printf("Entrez l'ordonnée: ");
+    scanf("%lf", &ordonnee);
+
+    if(abscisse<0 && ordonnee>0)
+    {
+        cadran = 1;
+    }
+    else if(abscisse>0 && ordonnee>0)
+    {
+        cadran = 2;
+    }
+    else if(abscisse>0 && ordonnee<0)
+    {
+        cadran = 3;
+    }
+    else if(abscisse<0 && ordonnee<0)
+    {
+        cadran = 4;
+    }
+    else
+    {
+        cadran = 0;
+    }
+
+    if(cadran)
+    {
+        printf("Vous êtes dans le cadran %d\n", cadran);
+    }
+    else
+    {
+        printf("Vous êtes sur l'axe!\n");
+    }
+
+
+    
+    /*int x = 2;
 
     if (x < 25 &&  x > 5)
     {
@@ -14,7 +54,7 @@ int main(void) {
         printf("x n'est pas dans l'intervalle!\n");
     }
 
-
+    */
 
     /*
     int x ;
