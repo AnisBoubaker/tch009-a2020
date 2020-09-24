@@ -9,7 +9,7 @@ int main() {
     printf("Saisir l'abscisse: ");
     scanf("%lf", &x);
 
-    printf("Saisir l'ordonnée: ");
+    printf("Saisir l'ordonnee: ");
     scanf("%lf", &y);
 
     if(x>0 && y>0)
@@ -35,11 +35,11 @@ int main() {
 
     if(cadran)
     {
-        printf("Vous êtes dans le cadran %d.\n", cadran);
+        printf("Vous etes dans le cadran %d.\n", cadran);
     }
     else
     {
-        printf("Vous êtes sur un axe!\n");
+        printf("Vous etes sur un axe!\n");
     }
 
 
