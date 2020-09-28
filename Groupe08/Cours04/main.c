@@ -9,6 +9,32 @@
 
 int main() {
 
+    //Demander à l'usager de saisir une valeur entre 0 et 100
+    //Continuer à lui redemander tant que ce n'est pas le cas.
+
+    int saisie; //Valeur saisie par l'usager
+
+    saisie = -1;
+    while(  saisie < 0  || saisie > 100  )
+    {
+        printf("Veuillez saisir une valeur entre 0 et 100: ");
+        scanf("%d", &saisie);
+        if(saisie<0 || saisie>100)
+        {
+            printf("Erreur!\n");
+        }
+        else
+        {
+            printf("Merci!\n");
+        }
+    }
+
+
+
+
+
+
+    /*
     double val;  //Base
     int exp;  //Exposant
     double resultat;
@@ -32,7 +58,7 @@ int main() {
 
     printf("Le résultat: %.2lf", resultat);
 
-
+    */
 
 
 
