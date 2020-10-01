@@ -9,6 +9,35 @@
 
 int main() {
 
+    int valeur;
+    int compteur; //Compteur de boucle
+
+    /*
+     * 10 divisible par 4?
+     * 10 / 4 = 2 il reste 2
+     *
+     * 10 est divisible par 4 si 10 % 4 == 0
+     *
+     */
+
+    printf("Veuillez saisir une valeur: ");
+    scanf("%d", &valeur);
+
+    compteur = 1;
+    while(compteur <= valeur)
+    {
+        if(valeur % compteur == 0)
+        {
+            printf("%d est divisible par %d\n", valeur, compteur);
+        }
+
+        compteur++;
+    }
+
+
+
+
+    /*
     //Demander à l'usager de saisir une valeur entre 0 et 100
     //Continuer à lui redemander tant que ce n'est pas le cas.
 
@@ -29,7 +58,7 @@ int main() {
         }
     }
 
-
+    */
 
 
 
