@@ -1,6 +1,36 @@
 #include <stdio.h>
 
 int main() {
+    /*
+     * Programme qui demande à l'usager de saisir une valeur
+     * entière entre 20 et 75.
+     *
+     * Si la valeur est correcte, on dit merci!
+     * Sinon on lui redemande
+     */
+    int saisie; //Valeur saisie par l'usager
+    int borne_min, borne_max;
+
+    borne_min = 20;
+    borne_max = 75;
+
+    saisie = 0;
+    printf("Saisir une valeur: ");
+    while(saisie>=borne_max || saisie<=borne_min)
+    {
+        scanf("%d", &saisie);
+        if(saisie>=borne_max || saisie<=borne_min)
+        {
+            printf("Erreur! Veuillez re-saisir une valeur entre 20 et 75: ");
+        }
+    }
+
+    printf("Merci!");
+
+
+
+
+
 
     /*
     //Calcul d'un exposant
