@@ -6,11 +6,61 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+int nb_aleatoire(int min, int max)
+{
+    return min + (int)(rand() / (RAND_MAX + 0.001) * (max - min + 1));
+}
 
 int main(void) {
+    int de;
+    int compteur;
+    int somme;
+    double resultat;
 
+    srand((unsigned int)time(NULL));
+    rand();
+
+    compteur = 0;
+    somme = 0;
+    while(compteur < 1000000)
+    {
+        de = nb_aleatoire(1,6);
+        somme = somme + de;
+        //Remplace les deux instructions ci-dessus
+        // somme = somme + nb_aleatoire(1,6);
+        compteur ++;
+    }
+
+    resultat = somme / 1000000.0;
+
+    printf("La moyenne des lancés est: %lf\n", resultat);
+
+
+    /*
     //Programme qui calcule une puissance d'un réel à un exposant entier positif
+    double base;
+    int exposant;
+    double resultat;
+    int compteur;
 
+    printf("Saisir la base: ");
+    scanf("%lf", &base);
+
+    printf("Saisir l'exposant: ");
+    scanf("%d", &exposant);
+
+    resultat = 1;
+    compteur = 0 ;
+    while(compteur < exposant)
+    {
+        resultat = resultat * base;
+        compteur++;
+    }
+
+    printf("%lf à la puissance %d = %lf\n", base, exposant, resultat);
+    */
 
 
 
