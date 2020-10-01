@@ -1,6 +1,13 @@
-#include <stdio.h>
+/*
+ * TCH009-Gr2 Cours 04
+ * Auteur: Anis Boubaker
+ * Date: 2020-10-01
+ */
 
-int main() {
-    printf("Hello, World!\n");
-    return 0;
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+
 }
