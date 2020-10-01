@@ -14,6 +14,32 @@ int nb_aleatoire(int min, int max)
 }
 
 int main(void) {
+
+    //Est-ce que un nombre saisi est premier?
+    int nombre; //Nombre dont on cherche les diviseurs
+    int compteur; //Compteur de boucle
+
+    printf("Entrez un nombre: ");
+    scanf("%d", &nombre);
+
+    compteur = 2;
+    while(compteur < nombre)
+    {
+        if( nombre % compteur == 0)
+        {
+            printf("Divisible par %d\n", compteur);
+        }
+        compteur++;
+    }
+
+
+
+
+
+
+
+    /*
+    //Exercice 2 du laboratoire
     int de;
     int compteur;
     int somme;
@@ -36,7 +62,7 @@ int main(void) {
     resultat = somme / 1000000.0;
 
     printf("La moyenne des lancés est: %lf\n", resultat);
-
+    */
 
     /*
     //Programme qui calcule une puissance d'un réel à un exposant entier positif
