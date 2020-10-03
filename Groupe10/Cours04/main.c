@@ -1,6 +1,41 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int nb_aleatoire(int min, int max)
+{
+    return min + (int)(rand() / (RAND_MAX + 0.001) * (max - min + 1));
+}
+
 
 int main() {
+    int nombre_tire;
+    int compteur;
+    double resultat;
+    int precision = 2000000000;
+
+    srand((unsigned int)time(NULL));
+    rand();
+
+
+    compteur = 0 ;
+    resultat = 0;
+    while(compteur<precision)
+    {
+        nombre_tire = nb_aleatoire(1,6);
+        resultat  = resultat + nombre_tire/(double)precision;
+
+        compteur++;
+    }
+
+    resultat = resultat / precision;
+
+    printf("La moyenne des lancés: %lf.\n", resultat);
+
+
+
+
+
     /*
      * Programme qui demande à l'usager de saisir une valeur
      * entière entre 20 et 75.
@@ -8,7 +43,7 @@ int main() {
      * Si la valeur est correcte, on dit merci!
      * Sinon on lui redemande
      */
-    int saisie; //Valeur saisie par l'usager
+    /*int saisie; //Valeur saisie par l'usager
     int borne_min, borne_max;
 
     borne_min = 20;
@@ -27,7 +62,7 @@ int main() {
 
     printf("Merci!");
 
-
+    */
 
 
 
