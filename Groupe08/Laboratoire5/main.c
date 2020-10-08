@@ -21,6 +21,11 @@ double factorielle(int nb);
 
 int main(void)
 {
+
+
+
+
+
     int saisie; // Valeur saisie par l'usager
     double fact; //Stocke le calcul de la factorielle
 
@@ -34,6 +39,11 @@ int main(void)
     return EXIT_SUCCESS;
 }
 
+/***
+ *
+ * @param nb
+ * @return
+ */
 double factorielle(int nb)
 {
    double resultat = 1; //Stocke les multiplications successives
