@@ -39,7 +39,51 @@ int menu(void);
 int dec_vers_octal(int val);
 
 
+/*
+ * DEC_VERS_BINAIRE
+ * Convertit une valeur décimale dans la base 2 (binaire) et retourne la valeur en question.
+ * PARAMETRES:
+ * - val (int): valeur à convertir.
+ * SORTIE (RETOUR): la valeur en binaire.
+ */
 int dec_vers_binaire(int val);
+
+
+/*
+ * DEC_VERS_BASE
+ * Convertit une valeur décimale dans une base (<10)et retourne la valeur en question.
+ * PARAMETRES:
+ * - val (int): valeur à convertir.
+ * - base (int): Base vers laquelle on effectue la conversion
+ * SORTIE (RETOUR): la valeur en binaire.
+ */
+int dec_vers_base(int val, int base);
+
+
+/*
+ * DEC_VERS_HEXA
+ * Convertit et affiche une valeur décimale en hexadécimal
+ * PARAMETRES:
+ * - val (int): valeur à convertir
+ * SORTIE (RETOUR): Aucune
+ */
+void dec_vers_hexa(int val);
+
+
+/*
+ * CARACTERE_HEXA
+ * Renvoie le chiffre hexadécimal correspondant à sa valeur en décimal
+ * 0 --> 0
+ * 1 --> 1
+ * .
+ * .
+ * 9--> 9
+ * 10 --> A
+ * .
+ * .
+ * 15 --> F
+ */
+char caractere_hexa(int val);
 
 
 int main(void)
@@ -55,15 +99,24 @@ int main(void)
         switch(choix_menu)
         {
             case 1:
-                printf("Nous allons convertir vers le binaire!\n");
+                printf("Saisir la valeur à convertir: ");
+                scanf("%d", &valeur_saisie);
+                //printf("%d en binaire: %d\n\n", valeur_saisie, dec_vers_binaire(valeur_saisie));
+                printf("%d en binaire: %d\n\n", valeur_saisie, dec_vers_base(valeur_saisie, 2));
                 break;
             case 2:
                 printf("Saisir la valeur à convertir: ");
                 scanf("%d", &valeur_saisie);
-                printf("%d en octal: %d\n\n", valeur_saisie, dec_vers_octal(valeur_saisie));
+                //printf("%d en octal: %d\n\n", valeur_saisie, dec_vers_octal(valeur_saisie));
+                printf("%d en octal: %d\n\n", valeur_saisie, dec_vers_base(valeur_saisie, 8));
                 break;
             case 3:
-                printf("Nous allons convertir vers l'hexadécimal!\n");
+                printf("Saisir la valeur à convertir: ");
+                scanf("%d", &valeur_saisie);
+                //printf("%d en octal: %d\n\n", valeur_saisie, dec_vers_octal(valeur_saisie));
+                printf("%d en hexadecimal: ", valeur_saisie);
+                dec_vers_hexa(valeur_saisie);
+                printf("\n");
                 break;
         }
     }
@@ -119,4 +172,72 @@ int dec_vers_octal(int val)
     }
 
     return resultat;
+}
+
+int dec_vers_binaire(int val)
+{
+    int resultat = 0;
+    int reste;
+    int compteur; //Compte les itérations de la boucle
+
+    compteur = 0;
+    while(val != 0)
+    {
+        reste = val  % 2;
+        //resultat  = resulat + reste * pow(10, compteur);
+        resultat += reste * ceil(pow(10, compteur));
+        //ceil: arrondir une valeur double vers l'entier supérieur
+        //floor : arrondir une valeur double vers l'entier inférieur.
+
+        val = val/2;
+        compteur++;
+    }
+
+    return resultat;
+}
+
+int dec_vers_base(int val, int base)
+{
+    int resultat = 0;
+    int reste;
+    int compteur; //Compte les itérations de la boucle
+
+    compteur = 0;
+    while(val != 0)
+    {
+        reste = val  %  base;
+        //resultat  = resulat + reste * pow(10, compteur);
+        resultat += reste * ceil(pow(10, compteur));
+        //ceil: arrondir une valeur double vers l'entier supérieur
+        //floor : arrondir une valeur double vers l'entier inférieur.
+
+        val = val / base;
+        compteur++;
+    }
+
+    return resultat;
+}
+
+
+char caractere_hexa(int val)
+{
+    if(val>=0 && val<=9)
+    {
+        return val+48;
+    }
+    else //La valeur est entre 10 et 15
+    {
+        return val - 10 + 65 ;
+    }
+}
+
+void dec_vers_hexa(int val)
+{
+    char ch1, ch2; //Chiffres hexa de la conversion
+
+    ch2 = caractere_hexa( val % 16 );
+    val /= 16;
+    ch1 = caractere_hexa(val % 16 );
+
+    printf("%c%c", ch1, ch2);
 }
