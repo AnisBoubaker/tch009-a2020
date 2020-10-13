@@ -16,6 +16,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /*
  * MENU
@@ -35,35 +36,31 @@ int menu(void);
  * - val (int): valeur à convertir.
  * SORTIE (RETOUR): la valeur en octal.
  */
+int dec_vers_octal(int val);
 
+
+int dec_vers_binaire(int val);
 
 
 int main(void)
 {
-    int choix_menu;
+
+    int choix_menu ;
+    int valeur_saisie;
 
     choix_menu = 0;
     while(choix_menu!=99)
     {
         choix_menu = menu();
-        /*if(choix_menu==1)
-        {
-            printf("Nous allons convertir vers le binaire!\n");
-        } else if (choix_menu==2)
-        {
-            printf("Nous allons convertir vers le octal!\n");
-        }
-        else if (choix_menu==3)
-        {
-            printf("Nous allons convertir vers l'hexa!\n");
-        }*/
         switch(choix_menu)
         {
             case 1:
                 printf("Nous allons convertir vers le binaire!\n");
                 break;
             case 2:
-                printf("Nous allons convertir vers l'octal!\n");
+                printf("Saisir la valeur à convertir: ");
+                scanf("%d", &valeur_saisie);
+                printf("%d en octal: %d\n\n", valeur_saisie, dec_vers_octal(valeur_saisie));
                 break;
             case 3:
                 printf("Nous allons convertir vers l'hexadécimal!\n");
@@ -100,4 +97,26 @@ int menu(void)
     }
 
     return choix;
+}
+
+int dec_vers_octal(int val)
+{
+    int resultat = 0;
+    int reste;
+    int compteur; //Compte les itérations de la boucle
+
+    compteur = 0;
+    while(val != 0)
+    {
+        reste = val  % 8;
+        //resultat  = resulat + reste * pow(10, compteur);
+        resultat += reste * ceil(pow(10, compteur));
+        //ceil: arrondir une valeur double vers l'entier supérieur
+        //floor : arrondir une valeur double vers l'entier inférieur.
+
+        val = val/8;
+        compteur++;
+    }
+
+    return resultat;
 }
