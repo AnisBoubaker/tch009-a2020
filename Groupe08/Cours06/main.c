@@ -1,5 +1,5 @@
 /*
- * Programme qui convertit des nombres de et vers les différentes bases
+ * Programme qui convertit des nombres de et vers les différentes bases sur 8 bits
  * Date: 2020-10-13
  * Auteur: TCH009-Groupe-08
  */
@@ -26,6 +26,17 @@
  * Sortie (valeur de retour): Choix valide de l'usager
  */
 int menu(void);
+
+
+/*
+ * DEC_VERS_OCTAL
+ * Convertit une valeur décimale dans la base 8 (octal) et retourne la valeur en question.
+ * PARAMETRES:
+ * - val (int): valeur à convertir.
+ * SORTIE (RETOUR): la valeur en octal.
+ */
+
+
 
 int main(void)
 {
