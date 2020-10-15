@@ -119,6 +119,7 @@ int main(void)
                 printf("\n");
                 break;
         }
+        printf("allo...");
     }
 
 
