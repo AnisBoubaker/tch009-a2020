@@ -51,6 +51,17 @@ int menu(void);
 int dec_vers_oct(int val);
 
 
+/*
+ * DEC_VERS_BIN
+ * Convertir en binaire une valeur décimale.
+ * ENTREE (PARAMÈTRES):
+ * - (entier) valeur décimale à convertir
+ * SORTIE (RETOUR):
+ * (entier) la valeur en binaire
+ */
+int dec_vers_bin(int val);
+
+
 int main()
 {
     int choix;
