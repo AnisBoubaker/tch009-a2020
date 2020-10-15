@@ -4,6 +4,11 @@
  * Date: 2020-10-15
  */
 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
 /*
  * 1. Dec -> Binaire
  * 2. Dec -> Octal
@@ -47,16 +52,44 @@ int menu(void);
  */
 int dec_vers_oct(int valeur);
 
-#include <stdio.h>
-#include <stdlib.h>
+/*
+ * DEC_VERS_BIN
+ * Convertit une valeur décimale en binaire.
+ * ENTREES (PARAMETRES):
+ * - valeur (entier): Valeur décimale à convertir
+ * SORTIE: (entier)
+ * Conversion vers le binaire
+ */
+int dec_vers_bin(int valeur);
+
 
 int main()
 {
     int choix; //Choix dans le menu
+    int val;
 
-    choix = menu();
+    choix  = 0 ;
+    while(choix != 99)
+    {
+        choix = menu();
+        switch(choix)
+        {
+            case 1:
+                printf("On convertit vers le binaire.\n");
+                break;
+            case 2:
+                printf("Valeur à convertir: ");
+                scanf("%d", &val);
+                printf("La valeur convertie: %d\n", dec_vers_oct(val));
+                break;
+            case 3:
+                printf("On convertit vers l'hexadécimal.\n");
+                break;
+        }
+    }
 
-    printf("Le choix de l'usager: %d\n", choix);
+    printf("Au revoir!\n");
+
 
     return EXIT_SUCCESS;
 }
@@ -79,4 +112,26 @@ int menu(void)
 
 
     return choix;
+}
+
+int dec_vers_oct(int valeur)
+{
+    int quotient;
+    int somme;
+    int compteur;
+
+    compteur = 0;
+    quotient = valeur; //quotient = 240
+    somme = 0;
+    while(quotient != 0)
+    {
+        somme  = somme  + (quotient % 8) * ceil(pow(10, compteur));
+        //ceil: arrondit vers l'entier au dessus
+        //floor: arrondit ver l'entier en dessous.
+
+        quotient = quotient / 8; //quotient = 30
+        compteur ++;
+    }
+
+    return somme;
 }
