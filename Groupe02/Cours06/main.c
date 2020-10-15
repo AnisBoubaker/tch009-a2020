@@ -63,6 +63,18 @@ int dec_vers_oct(int valeur);
 int dec_vers_bin(int valeur);
 
 
+/*
+ * DEC_VERS_BASE
+ * Convertit une valeur décimale vers la base spécifiée en paramètre.
+ * ENTREES (PARAMETRES):
+ * - valeur (entier): Valeur décimale à convertir
+ * - base (entier): Base vers laquelle on convertit
+ * SORTIE: (entier)
+ * Conversion vers la base demandée
+ */
+int dec_vers_base(int valeur, int base);
+
+
 int main()
 {
     int choix; //Choix dans le menu
@@ -75,15 +87,22 @@ int main()
         switch(choix)
         {
             case 1:
-                printf("On convertit vers le binaire.\n");
+                printf("Valeur à convertir: ");
+                scanf("%d", &val);
+                printf("La valeur convertie: %d\n", dec_vers_base(val, 2));
                 break;
             case 2:
                 printf("Valeur à convertir: ");
                 scanf("%d", &val);
-                printf("La valeur convertie: %d\n", dec_vers_oct(val));
+                printf("La valeur convertie: %d\n", dec_vers_base(val, 8));
                 break;
             case 3:
                 printf("On convertit vers l'hexadécimal.\n");
+                break;
+            case 4:
+                printf("Valeur à convertir: ");
+                scanf("%d", &val);
+                printf("La valeur convertie en base 6: %d\n", dec_vers_base(val, 6));
                 break;
         }
     }
@@ -101,10 +120,11 @@ int menu(void)
     printf("1. DEC->BIN\n");
     printf("2. DEC->OCT\n");
     printf("3. DEC->HEXA\n");
+    printf("4. DEC->Base 6\n");
     printf("99. Sortir\n");
 
     choix = 0;
-    while((choix<1 || choix>3) && choix!=99 )
+    while((choix<1 || choix>4) && choix!=99 )
     {
         printf(">> ");
         scanf("%d", &choix);
@@ -130,6 +150,46 @@ int dec_vers_oct(int valeur)
         //floor: arrondit ver l'entier en dessous.
 
         quotient = quotient / 8; //quotient = 30
+        compteur ++;
+    }
+
+    return somme;
+}
+
+int dec_vers_bin(int valeur)
+{
+    int quotient;
+    int somme;
+    int compteur;
+
+    compteur = 0;
+    quotient = valeur; //quotient = 240
+    somme = 0;
+    while(quotient != 0)
+    {
+        somme  = somme  + (quotient % 2) * ceil(pow(10, compteur));
+
+        quotient = quotient / 2; //quotient = 30
+        compteur ++;
+    }
+
+    return somme;
+}
+
+int dec_vers_base(int valeur, int base)
+{
+    int quotient;
+    int somme;
+    int compteur;
+
+    compteur = 0;
+    quotient = valeur; //quotient = 240
+    somme = 0;
+    while(quotient != 0)
+    {
+        somme  = somme  + (quotient % base) * ceil(pow(10, compteur));
+
+        quotient = quotient / base; //quotient = 30
         compteur ++;
     }
 
