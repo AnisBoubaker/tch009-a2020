@@ -27,6 +27,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /*
  * MENU
@@ -53,6 +54,7 @@ int dec_vers_oct(int val);
 int main()
 {
     int choix;
+    int val;
 
     choix = 0;
     while(choix != 99)
@@ -64,7 +66,9 @@ int main()
                 printf("On convertit le décimal vers le binaire...\n");
                 break;
             case 2:
-                printf("On convertit le décimal vers l'octal...\n");
+                printf("Valeur à convertir: ");
+                scanf("%d", &val);
+                printf("La conversion en octal est: %d\n", dec_vers_oct(val));
                 break;
             case 3:
                 printf("On convertit le décimal vers l'hexadécimal...\n");
@@ -99,3 +103,41 @@ int menu(void)
 
     return choix;
 }
+
+int puissance(int val, int puiss)
+{
+    int resultat = 1;
+    int compteur = 0;
+    while(compteur<puiss)
+    {
+        resultat *= val;
+    }
+    return resultat;
+}
+
+int dec_vers_oct(int val)
+{
+    int quotient;
+    int chiffre_octal;
+    int resultat;
+    int puiss;
+
+    quotient = val;
+    puiss = 0;
+    resultat  = 0;
+    while(quotient != 0)
+    {
+        chiffre_octal = quotient % 8;
+        resultat += chiffre_octal * ceil(pow(10, puiss));
+        //ceil: Arrondit un réel à l'entier supérieur
+        //floor: Arrondit un réel à l'entier inférieur
+        quotient /= 8;
+        puiss ++;
+    }
+
+    return resultat;
+}
+
+
+
+
