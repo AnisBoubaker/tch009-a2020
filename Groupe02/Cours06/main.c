@@ -75,6 +75,28 @@ int dec_vers_bin(int valeur);
 int dec_vers_base(int valeur, int base);
 
 
+/*
+ * DEC_VERS_HEXA
+ * Convertit et affiche la valeur en hexadécimal d'une valeur décimale
+ * reçue en paramètre
+ * ENTREES:
+ * - valeur (entier): la valeur décimale à convertir
+ * SORTIE (RETOUR):
+ * Aucune
+ */
+void dec_vers_hexa(int valeur);
+
+/*
+ * CARACTERE_HEXA
+ * Donne le chiffre hexadécimal correspondant à une valeur entre 0 et 15.
+ * ENTREE:
+ * - val: La valeur entre 0 et 15 à convertir
+ * SORTIE: caractère
+ * Caractère correspondant entre 0..9A..F
+ */
+char caractere_hexa(int val);
+
+
 int main()
 {
     int choix; //Choix dans le menu
@@ -97,7 +119,11 @@ int main()
                 printf("La valeur convertie: %d\n", dec_vers_base(val, 8));
                 break;
             case 3:
-                printf("On convertit vers l'hexadécimal.\n");
+                printf("Valeur à convertir: ");
+                scanf("%d", &val);
+                printf("La valeur convertie: ");
+                dec_vers_hexa(val);
+                printf("\n");
                 break;
             case 4:
                 printf("Valeur à convertir: ");
@@ -194,4 +220,28 @@ int dec_vers_base(int valeur, int base)
     }
 
     return somme;
+}
+
+
+char caractere_hexa(int val)
+{
+    if(val<=9)
+    {
+        return val+48;
+    }
+    else
+    {
+        return val + 55;
+    }
+}
+
+void dec_vers_hexa(int valeur)
+{
+    char ch1, ch2; //Chiffres en hexadécimal
+
+    ch1 = caractere_hexa( valeur % 16 );
+    ch2 = caractere_hexa( (valeur/16) % 16 );
+
+    printf("%c%c", ch2, ch1);
+
 }
