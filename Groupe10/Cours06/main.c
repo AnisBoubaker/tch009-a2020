@@ -61,9 +61,38 @@ int dec_vers_oct(int val);
  */
 int dec_vers_bin(int val);
 
+/*
+ * DEC_VERS_BASE
+ * Convertir dans une base spécifique une valeur décimale.
+ * ENTREE (PARAMÈTRES):
+ * - (entier) valeur décimale à convertir
+ * - (entier) base dans laquelle on convertit la valeur
+ * SORTIE (RETOUR):
+ * (entier) la valeur dans la base spécifiée
+ */
+int dec_vers_base(int val, int base);
+
+
+/*
+ * DEC_VERS_HEXA
+ * Convertir en hexadécimal une valeur décimale et l'affiche
+ * ENTREE (PARAMÈTRES):
+ * - (entier) valeur décimale à convertir
+ * SORTIE (RETOUR): Aucune
+ */
+void dec_vers_hexa(int val);
+
+
+/*
+ * Reçoit une valeur entre 0 et 15 et retourne le
+ * chiffre Hexa correspondant sous forme d'un
+ * caractère.
+ */
+char chiffre_hexa(int val);
 
 int main()
 {
+
     int choix;
     int val;
 
@@ -74,15 +103,26 @@ int main()
         switch(choix)
         {
             case 1:
-                printf("On convertit le décimal vers le binaire...\n");
+                printf("Valeur à convertir: ");
+                scanf("%d", &val);
+                printf("La conversion en binaire est: %d\n", dec_vers_base(val, 2));
                 break;
             case 2:
                 printf("Valeur à convertir: ");
                 scanf("%d", &val);
-                printf("La conversion en octal est: %d\n", dec_vers_oct(val));
+                printf("La conversion en octal est: %d\n", dec_vers_base(val, 8));
                 break;
             case 3:
-                printf("On convertit le décimal vers l'hexadécimal...\n");
+                printf("Valeur à convertir: ");
+                scanf("%d", &val);
+                printf("La conversion en hexadécimal est : ");
+                dec_vers_hexa(val);
+                printf("\n");
+                break;
+            case 4:
+                printf("Valeur à convertir: ");
+                scanf("%d", &val);
+                printf("La conversion en base 6 est: %d\n", dec_vers_base(val, 6));
                 break;
         }
 
@@ -100,13 +140,14 @@ int menu(void)
     printf("1. Dec -> Bin\n");
     printf("2. Dec -> Oct\n");
     printf("3. Dec -> Hex\n");
+    printf("4. Dec -> Base 6\n");
     printf("99. Quitter\n");
 
     //printf(">> ");
     //scanf("%d", &choix);
 
     choix =0;
-    while((choix<1 || choix>3) && choix!=99)
+    while((choix<1 || choix>4) && choix!=99)
     {
         printf(">> ");
         scanf("%d", &choix);
@@ -149,6 +190,75 @@ int dec_vers_oct(int val)
     return resultat;
 }
 
+int dec_vers_bin(int val)
+{
+    int quotient;
+    int chiffre_octal;
+    int resultat;
+    int puiss;
+
+    quotient = val;
+    puiss = 0;
+    resultat  = 0;
+    while(quotient != 0)
+    {
+        chiffre_octal = quotient % 2;
+        resultat += chiffre_octal * ceil(pow(10, puiss));
+        quotient /= 2;
+        puiss ++;
+    }
+
+    return resultat;
+}
+
+int dec_vers_base(int val, int base)
+{
+    int quotient;
+    int chiffre_octal;
+    int resultat;
+    int puiss;
+
+    quotient = val;
+    puiss = 0;
+    resultat  = 0;
+    while(quotient != 0)
+    {
+        chiffre_octal = quotient % base;
+        resultat += chiffre_octal * ceil(pow(10, puiss));
+        quotient /= base;
+        puiss ++;
+    }
+
+    return resultat;
+}
+
+char chiffre_hexa(int val)
+{
+    /*if(val <=9)
+    {
+        return val + 48;
+    }
+    else
+    {
+        return val+55;
+    }*/
+    if(val <=9)
+    {
+        return val + 48;
+    }
+    return val+55;
+}
+
+void dec_vers_hexa(int val)
+{
+    char chiffre1, chiffre2;
+
+    chiffre1 = chiffre_hexa( val % 16 );
+    val /= 16;
+    chiffre2 = chiffre_hexa( val % 16);
+
+    printf("%c%c", chiffre2, chiffre1);
+}
 
 
 
