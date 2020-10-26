@@ -9,11 +9,10 @@ double pow_entier(double n, int puiss)
     int puiss_pos;
 
     puiss_pos = abs(puiss);
-    /*while(i < puiss_pos)
+    for(i=0; i < puiss_pos; i++)
     {
         resultat *= n;
-        i++;
-    }*/
+    }
 
 
     if(puiss < 0)
