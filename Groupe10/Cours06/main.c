@@ -163,6 +163,7 @@ int puissance(int val, int puiss)
     while(compteur<puiss)
     {
         resultat *= val;
+        compteur++;
     }
     return resultat;
 }
