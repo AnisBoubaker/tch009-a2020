@@ -1,28 +1,50 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+double pow_entier(double n, int puiss)
+{
+    double resultat = 1;
+    int i=0; //compteur
+    int puiss_pos;
+
+    puiss_pos = abs(puiss);
+    /*while(i < puiss_pos)
+    {
+        resultat *= n;
+        i++;
+    }*/
+
+
+    if(puiss < 0)
+    {
+        resultat = 1 / resultat;
+    }
+
+    return resultat;
+}
+
+
 
 int main() {
 
     int nb=0;
     double val = 0 ;
-    double t = 0;
+    double total = 0;
     //Saisir: -1, -1, 10, 35, 15, -1
 
-    while (nb-1==0 || val >=0 )
+    do
     {
-        if (val >= 0)
-        {
-            t +=val;
-        }
-        else
-        {
-            nb--;
-        }
         printf("Valeur: ");
         scanf("%lf", &val);
-        nb++;
-    }
+        if (val >= 0)
+        {
+            total +=val;
+            nb++;
+        }
+    } while (nb==0 || val >=0 ) ;
 
-    printf("Résultat: %lf\n", t / (nb-1) );
+    printf("Résultat: %lf\n", total / nb );
 
 
     return 0;
