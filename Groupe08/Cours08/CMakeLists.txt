@@ -3,4 +3,4 @@ project(Cours08 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Cours08 main.c)
+add_executable(Cours08 main.c mathematiques.c mathematiques.h toto.c toto.h)
