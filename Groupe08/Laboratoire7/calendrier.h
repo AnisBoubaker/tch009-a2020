@@ -8,7 +8,7 @@
 //Constantes du module
 #define VRAI 1
 #define FAUX 0
-#define ERREUR -1
+#define ERREUR -2000000000
 
 
 /*
@@ -55,6 +55,26 @@ int jour_mois(int mois, int annee);
  * SORTIES (entier): Valeur vraie si la date est une date valide, fausse sinon.
  */
 int est_date_valide(int jour, int mois, int annee);
+
+
+
+/*
+ * COMPARER_DATES
+ * Compare deux dates afin de savoir laquelle est antiérieur/postérieure à l'autre.
+ * ENTREES:
+ * - jour1: Le jour dans le mois de la 1ere date (1-31)
+ * - mois1: Le mois dans l'année de la 1ere date (1-12)
+ * - annee1: L'année de la 1ere date
+ * - jour2: Le jour dans le mois de la 2eme date (1-31)
+ * - mois2: Le mois dans l'année de la 2eme date (1-12)
+ * - annee2: L'année de la 2eme date
+ * SORTIE (entier): Valeur de la comparaison:
+ *   0 si les deux dates sont identiques
+ *  >0 si la 1ère date est supérieure (postérieure) à la 2ème
+ *  <0 si la 1ère date est inférieure (antérieure) à la 2ème
+ *  ERREUR si une des deux dates n'est pas valide.
+ */
+int comparer_dates(int jour1, int mois1, int annee1, int jour2, int mois2, int annee2);
 
 
 #endif //LABORATOIRE7_CALENDRIER_H
