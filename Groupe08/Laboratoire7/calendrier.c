@@ -15,3 +15,69 @@ int est_bissextile(int annee){
         return FAUX;
     }
 }
+
+int jour_semaine(int jour, int mois, int annee){
+    int jour_semaine; //Stocke le jour de la semaine
+    int z; //Variable z de la formule de Keith
+
+
+    if (mois < 3)
+    {
+        z = annee - 1;
+        jour_semaine = ((23 * mois) / 9 + jour + 4 + annee + (z / 4) - (z / 100) + (z / 400)) % 7;
+    }
+    else
+    {
+        z = annee;
+        jour_semaine = ((23 * mois) / 9 + jour + 4 + annee + (z / 4) - (z / 100) + (z / 400) - 2) % 7;
+    }
+    return jour_semaine;
+}
+
+int jour_mois(int mois, int annee)
+{
+    int nb_jours;
+
+    if(mois<1 || mois>12)
+    {
+        return ERREUR;
+    }
+
+    //nb_jours = 31;
+    switch(mois) {
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            nb_jours = 30;
+            break;
+        case 2:
+            if (est_bissextile(annee)) {
+                nb_jours = 29;
+            } else {
+                nb_jours = 28;
+            }
+            break;
+        default:
+            nb_jours = 31;
+    }
+
+    return nb_jours;
+}
+
+int est_date_valide(int jour, int mois, int annee)
+{
+    int nb_jours;
+
+    if(mois<1 || mois>12)
+    {
+        return FAUX;
+    }
+
+    nb_jours = jour_mois(mois, annee);
+    if(jour<1 || jour>nb_jours)
+    {
+        return FAUX;
+    }
+    return VRAI;
+}
