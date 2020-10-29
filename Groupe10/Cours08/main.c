@@ -4,12 +4,39 @@
 
 double approx_pi(int nb_termes);
 
+
+/*
+ * afficher_table_mult
+ *
+ * Affiche la table de multiplication pour toutes les valeurs jusqu'à max.
+ * Exemple avec un max = 10
+ *
+ * 1 2 3 4 5 ... 10
+ * 2 4 6 8 ....  20
+ * ...
+ * ...
+ * 9 18 27 ..... 90
+ * 10 20 30 .... 100
+ *
+ * ENTREES:
+ * - max (entier) : jusqu'où aller dans la table?
+ * SORTIE: Aucune (affichage seulement)
+ *
+ */
+
+
 int main() {
 
     printf("%lf\n", approx_pi(1000000));
 
     return EXIT_SUCCESS;
 }
+
+
+
+
+
+
 
 
 double approx_pi(int nb_termes)
