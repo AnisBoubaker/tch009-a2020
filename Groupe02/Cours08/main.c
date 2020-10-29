@@ -1,7 +1,26 @@
+
+
+
+
 #include <stdio.h>
+#include "mathematiques.h"
+
 
 int main() {
-    int nb=0;
+
+    table_multiplication(10);
+
+    printf("%lf\n", approx_pi(1000000));
+
+    return 0;
+}
+
+
+
+
+
+/*
+int nb=0;
     double val=0;
     double t=0;
 
@@ -20,4 +39,4 @@ int main() {
 
     printf("Résultat: %lf\n", t / nb );
     return 0;
-}
+ */
