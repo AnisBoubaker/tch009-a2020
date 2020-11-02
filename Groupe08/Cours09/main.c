@@ -1,5 +1,35 @@
 #include <stdio.h>
 
+
+/*
+ * Programme qui calcule le nième des termes de la suite
+ * de Fibonacci.
+ *
+ * f(0) = 0
+ * f(1) = 1
+ *
+ * Pour n>=2,
+ * f(n) = f(n-2) + f(n-1)
+ *
+ * f(2) = 1
+ * f(3) = f(1)+f(2) = 2
+ * f(4) = f(3)+f(2) = 3
+ *
+ *
+ *Le nieme terme?
+ * L'utilisateur saisit n (on suppose entre 0 et 100)
+ */
+
+
+
+
+
+
+
+
+
+
+
 /*
  * Programme qui lit 5 notes au clavier
  * qui les stocke dans un tableau.
