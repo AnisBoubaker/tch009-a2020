@@ -11,31 +11,25 @@
 
 
 int main() {
-    int notes[3] = {89, 78, 100};
-    int note_session_passee[3];
+    double notes[5];
+    double somme;
     int i;
 
-    printf("%d\n", notes[1] );
-
-    notes[1] = 65;
-
-    printf("%d\n", notes[1] );
-
-    for(i=0; i<3; i++)
+    //for(i=0; i<=4; i++)
+    for(i=0; i<5; i++)
     {
-        notes[i] = 0;
+        printf("Saisir la note de l'étudiant-e %d: ", i+1);
+        scanf("%lf", &notes[i]);
     }
 
-    printf("Contenu du tableau: \n");
-    for(i=0; i<3; i++)
+    //On fait la somme:
+    somme = 0;
+    for(i=0; i<5; i++)
     {
-        printf("%d\n", notes[i]);
+        somme+= notes[i];
     }
 
-    for(i=0; i<3 ; i++)
-    {
-        note_session_passee[i] = notes[i];
-    }
+    printf("La somme des notes est: %lf\n", somme);
 
     return 0;
 }
