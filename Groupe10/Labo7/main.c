@@ -3,8 +3,9 @@
 
 
 int main() {
-    printf("%d", est_bissextile(2020) );
+    int an;
 
+    printf("%d",  est_date_valide(29, 2, 2020) );
 
     return 0;
 }
