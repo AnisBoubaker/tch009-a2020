@@ -38,4 +38,27 @@ Paramètres modifiés:
 int jour_semaine(int jour, int mois, int annee);
 
 
+/*
+ * JOUR_MOIS
+ * Détermine le nombre de jours, pour un mois d'une année donnés
+ * ENTREES:
+ * - mois(entier): Le mois dans l'année (1 à 12)
+ * - annee(entier): L'année de la date.
+ * SORTIE (entier): Le nombre de jours du mois, ou ERREUR si la date est invalide.
+ */
+int jour_mois(int mois, int annee);
+
+
+/*
+ * EST_DATE_VALIDE
+ * Détermine si une date est une date correcte en tenant compte des années bissextiles
+ * ENTRES:
+ * - jour (entier): Le jour du mois (1 à 31)
+ * - mois (entier): Le mois dans l'année (1 a 12)
+ * - annee (entier): L'année de la date à vérifier
+ * SORTIES (entier): Valeur vraie si la date est une date valide, fausse sinon.
+ */
+int est_date_valide(int jour, int mois, int annee);
+
+
 #endif //LAB07_CALENDRIER_H

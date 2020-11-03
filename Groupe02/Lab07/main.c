@@ -4,20 +4,9 @@
 
 
 int main(void) {
-    unsigned int annee; //Année saisie par l'usager
 
-    printf("Saisir l'année: ");
-    scanf("%u", &annee);
 
-    //On teste la condition d'année bissextile et on affiche le résultat
-    if( est_bisextile(annee) )
-    {
-        printf("L'année est bissextile.\n");
-    }
-    else
-    {
-        printf("L'année n'est pas bissextile.\n");
-    }
+    printf("%d", est_date_valide(29, 2, 2020));
 
     return EXIT_SUCCESS;
 }

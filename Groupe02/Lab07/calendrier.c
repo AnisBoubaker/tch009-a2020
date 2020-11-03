@@ -39,3 +39,59 @@ int jour_semaine(int jour, int mois, int annee)
     }
     return le_jour;
 }
+
+
+int jour_mois(int mois, int annee)
+{
+    int resultat;
+
+    if(mois<1 || mois>12)
+    {
+        return ERREUR;
+    }
+
+    switch(mois)
+    {
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            resultat = 30;
+            break;
+        case 2:
+            if(est_bisextile(annee))
+            {
+                resultat = 29;
+            }
+            else
+            {
+                resultat = 28;
+            }
+            break;
+        default:
+            resultat = 31;
+    }
+    return resultat;
+}
+
+int est_date_valide(int jour, int mois, int annee)
+{
+    int max_jours;
+
+    max_jours = jour_mois(mois, annee);
+    if(max_jours==ERREUR)
+    {
+        return FAUX;
+    }
+
+    if(jour>=1 && jour<=max_jours)
+    {
+        return VRAI;
+    }
+    else
+    {
+        return FAUX;
+    }
+    //Le dernier if/else pourrait s'écrire ainsi:
+    // return jour>=1 && jour<=max_jours;
+}
