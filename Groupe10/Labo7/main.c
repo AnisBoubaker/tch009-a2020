@@ -5,7 +5,8 @@
 int main() {
     int an;
 
-    printf("%d",  est_date_valide(29, 2, 2020) );
+    printf("%d",
+            comparer_dates(40, 3, 2021, 31, 12, 2020));
 
     return 0;
 }
