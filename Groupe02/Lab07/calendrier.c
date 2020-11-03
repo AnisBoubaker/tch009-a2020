@@ -95,3 +95,20 @@ int est_date_valide(int jour, int mois, int annee)
     //Le dernier if/else pourrait s'écrire ainsi:
     // return jour>=1 && jour<=max_jours;
 }
+
+int comparer_date(int jour1, int mois1, int annee1, int jour2, int mois2, int annee2)
+{
+    if( !est_date_valide(jour1, mois1, annee1) || !est_date_valide(jour2, mois2, annee2) )
+    {
+        return ERREUR;
+    }
+    if(annee1!=annee2)
+    {
+        return annee1 - annee2;
+    }
+    if(mois1!=mois2)
+    {
+        return mois1-mois2;
+    }
+    return jour1-jour2;
+}
