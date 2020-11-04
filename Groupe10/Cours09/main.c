@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #define NOMBRE_ETUDIANTS_MAX 40
-
+#define NOMBRE_TERMES_MAX 20
 
 
 /*
@@ -20,52 +20,141 @@ Définition: la suite de Fibonacci se définit récursivement
  */
 
 
+double moyenne(int tab_valeurs[], int nb_valeurs)
+{
+    int i;
+    double moyenne=0;
+
+    for(i=0;i<nb_valeurs; i++)
+    {
+        moyenne+=tab_valeurs[i];
+    }
+
+    moyenne = moyenne / nb_valeurs;
+
+    return moyenne;
+}
+
+
+void bidon(int a)
+{
+    a = a * 10;
+}
+void bidon2(int tab[], int nb_elts)
+{
+    int resultat[100];
+    int i;
+    for(i=0; i<nb_elts; i++)
+    {
+        tab[i] = tab[i]*10;
+    }
+}
+
+
+/*
+ * Une fonction qui reçoit un tableau.
+ * Elle "retourne" la liste des valeurs paires.
+ */
 
 
 int main() {
-    /*
- * Programme qui lit 5 notes au clavier
+    int un_tableau[]= {10, 15, 20, 30};
+    int i;
+
+    bidon2(un_tableau, 4);
+    for(i=0; i<4; i++)
+    {
+        printf("Case %d: %d\n", i, un_tableau[i]);
+    }
+
+
+    /*int toto = 30;
+
+    bidon(toto);
+    printf("%d", toto);*/
+
+
+
+
+
+   /*int fibo[NOMBRE_TERMES_MAX] = {0, 1};
+   int mon_tab[5] = {45, 60, 70, 80, 100};
+   int i;
+   int nb_termes;
+   double moy_fibo;
+
+   printf("Nombre de termes à calculer? (<%d)", NOMBRE_TERMES_MAX);
+   scanf("%d", &nb_termes);
+
+   if(nb_termes>NOMBRE_TERMES_MAX)
+   {
+       nb_termes = NOMBRE_TERMES_MAX;
+   }
+
+
+   fibo[0]=0;
+   fibo[1]=1;
+   for(i=2; i<nb_termes; i++)
+   {
+       fibo[i] = fibo[i-1]+fibo[i-2];
+   }
+
+   for(i=0; i<nb_termes; i++)
+   {
+       printf("Fibo(%d) = %d\n", i, fibo[i]);
+   }
+
+   moy_fibo = moyenne(fibo, nb_termes);
+   printf("La moyenne des %d termes de la suite de Fibonacci: %lf\n", nb_termes, moy_fibo);
+
+   printf("La moyenne des valeurs dans mon_tab: %lf\n",  moyenne(mon_tab, 5)  );
+
+
+   return 0;*/
+}
+
+
+/*
+* Programme qui lit 5 notes au clavier
 * qui les stocke dans un tableau.
 * Après avoir lu, calculer la moyenne de toutes
 * les notes et afficher la moyenne.
 *
- */
-    double notes[NOMBRE_ETUDIANTS_MAX];
-    int nb_etudiants;
-    double moyenne;
-    double saisie;
-    int i;
+*/
+/*double notes[NOMBRE_ETUDIANTS_MAX];
+int nb_etudiants;
+double moyenne;
+double saisie;
+int i;
 
-    printf("Saisir les notes (-1 pour terminer)\n");
-    nb_etudiants = 0;
-    do{
-        printf("Note: ");
-        scanf("%lf", &saisie);
-        if(saisie!=-1)
-        {
-            notes[nb_etudiants] = saisie;
-            nb_etudiants++;
-        }
-    } while(saisie != -1 && nb_etudiants < NOMBRE_ETUDIANTS_MAX);
-
-
-    /*for(i=0; i<NOMBRE_ETUDIANTS_MAX; i++)
+printf("Saisir les notes (-1 pour terminer)\n");
+nb_etudiants = 0;
+do{
+    printf("Note: ");
+    scanf("%lf", &saisie);
+    if(saisie!=-1)
     {
-        printf("Note %d: ", i+1);
-        scanf("%lf", &notes[i]);
-    }*/
-
-    moyenne = 0;
-    for(i=0; i < nb_etudiants ; i++)
-    {
-        moyenne+=notes[i];
+        notes[nb_etudiants] = saisie;
+        nb_etudiants++;
     }
-    moyenne /= nb_etudiants;
+} while(saisie != -1 && nb_etudiants < NOMBRE_ETUDIANTS_MAX);*/
 
-    printf("Moyenne: %lf\n", moyenne);
 
-    return 0;
+/*for(i=0; i<NOMBRE_ETUDIANTS_MAX; i++)
+{
+    printf("Note %d: ", i+1);
+    scanf("%lf", &notes[i]);
+}*/
+
+/*moyenne = 0;
+for(i=0; i < nb_etudiants ; i++)
+{
+    moyenne+=notes[i];
 }
+moyenne /= nb_etudiants;
+
+printf("Moyenne: %lf\n", moyenne);*/
+
 
 
 
