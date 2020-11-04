@@ -3,6 +3,25 @@
 #define NOMBRE_ETUDIANTS_MAX 40
 
 
+
+/*
+Écrire un programme qui déclare un tableau de taille 40,
+ qui y stocke les 40 premiers termes de la suite de Fibonacci
+ puis qui les affiche.
+Définition: la suite de Fibonacci se définit récursivement
+* Fib(0) = 0
+* Fib(1) = 1
+* Pour n>1, Fib(n) = Fib(n-2)+Fib(n-1)
+ *
+ *
+ *  0  1   1   2   3   5    8   13
+ *
+ *
+ */
+
+
+
+
 int main() {
     /*
  * Programme qui lit 5 notes au clavier
