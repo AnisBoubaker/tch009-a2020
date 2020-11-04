@@ -56,7 +56,19 @@ void bidon2(int tab[], int nb_elts)
  * Donner la liste des notes qui sont >=60
  */
 
-
+void bonnes_notes(double ensemble_notes[], int total_notes, double liste_bonnes_notes[])
+{
+    int i;
+    int nb_bonnes_notes = 0;
+    for(i=0; i<total_notes; i++)
+    {
+        if(ensemble_notes[i]>=60)
+        {
+            liste_bonnes_notes[nb_bonnes_notes] = ensemble_notes[i];
+            nb_bonnes_notes++;
+        }
+    }
+}
 
 
 int main() {
