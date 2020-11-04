@@ -51,6 +51,14 @@ void bidon2(int tab[], int nb_elts)
 }
 
 
+void valeures_paires(int tab[], int nb_elts, int resultat[])
+{
+    //Remplir le tableau resultat sans laisse de trous au début ou au milieu
+    // [ 2   |   |  | 34  |   ]
+}
+
+
+
 /*
  * Une fonction qui reçoit un tableau.
  * Elle "retourne" la liste des valeurs paires.
@@ -58,27 +66,9 @@ void bidon2(int tab[], int nb_elts)
 
 
 int main() {
-    int un_tableau[]= {10, 15, 20, 30};
-    int i;
-
-    bidon2(un_tableau, 4);
-    for(i=0; i<4; i++)
-    {
-        printf("Case %d: %d\n", i, un_tableau[i]);
-    }
-
-
-    /*int toto = 30;
-
-    bidon(toto);
-    printf("%d", toto);*/
-
-
-
-
-
-   /*int fibo[NOMBRE_TERMES_MAX] = {0, 1};
+    int fibo[NOMBRE_TERMES_MAX] = {0, 1};
    int mon_tab[5] = {45, 60, 70, 80, 100};
+   int fibo_pairs[NOMBRE_TERMES_MAX];
    int i;
    int nb_termes;
    double moy_fibo;
@@ -107,11 +97,30 @@ int main() {
    moy_fibo = moyenne(fibo, nb_termes);
    printf("La moyenne des %d termes de la suite de Fibonacci: %lf\n", nb_termes, moy_fibo);
 
-   printf("La moyenne des valeurs dans mon_tab: %lf\n",  moyenne(mon_tab, 5)  );
+   valeures_paires(fibo, nb_termes, fibo_pairs);
 
+   /*
+    * Afficher les valeurs paires
+    */
 
-   return 0;*/
+   return 0;
 }
+
+/*
+int un_tableau[]= {10, 15, 20, 30};
+int i;
+
+bidon2(un_tableau, 4);
+for(i=0; i<4; i++)
+{
+printf("Case %d: %d\n", i, un_tableau[i]);
+}
+*/
+
+/*int toto = 30;
+
+bidon(toto);
+printf("%d", toto);*/
 
 
 /*
