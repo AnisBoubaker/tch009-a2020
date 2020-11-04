@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+/*Programme qui lit 5 notes au clavier
+* qui les stocke dans un tableau.
+* Après avoir lu, calculer la somme de toutes
+* les notes et afficher la somme.
+*/
+
+
+
+
 int main() {
 
     //Tableau notes de 5 entiers
