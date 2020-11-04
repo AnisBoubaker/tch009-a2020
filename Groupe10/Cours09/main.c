@@ -1,22 +1,60 @@
 #include <stdio.h>
 
-#define NOMBRE_ETUDIANTS 35
+#define NOMBRE_ETUDIANTS_MAX 40
 
-/*
+
+int main() {
+    /*
  * Programme qui lit 5 notes au clavier
 * qui les stocke dans un tableau.
 * Après avoir lu, calculer la moyenne de toutes
 * les notes et afficher la moyenne.
 *
  */
+    double notes[NOMBRE_ETUDIANTS_MAX];
+    int nb_etudiants;
+    double moyenne;
+    double saisie;
+    int i;
+
+    printf("Saisir les notes (-1 pour terminer)\n");
+    nb_etudiants = 0;
+    do{
+        printf("Note: ");
+        scanf("%lf", &saisie);
+        if(saisie!=-1)
+        {
+            notes[nb_etudiants] = saisie;
+            nb_etudiants++;
+        }
+    } while(saisie != -1 && nb_etudiants < NOMBRE_ETUDIANTS_MAX);
 
 
-int main() {
-    int a = 10;
+    /*for(i=0; i<NOMBRE_ETUDIANTS_MAX; i++)
+    {
+        printf("Note %d: ", i+1);
+        scanf("%lf", &notes[i]);
+    }*/
+
+    moyenne = 0;
+    for(i=0; i < nb_etudiants ; i++)
+    {
+        moyenne+=notes[i];
+    }
+    moyenne /= nb_etudiants;
+
+    printf("Moyenne: %lf\n", moyenne);
+
+    return 0;
+}
+
+
+
+/*int a = 10;
     int i;
     int tab[50] = { 0 };
     //Déclarer un tableau de 35 éléments de type double
-    double notes[NOMBRE_ETUDIANTS] = {89, 78, 0, 56, 100, 45};
+    double notes[NOMBRE_ETUDIANTS_MAX] = {89, 78, 0, 56, 100, 45};
 
     for(i=0; i<50; i++)
     {
@@ -32,7 +70,7 @@ int main() {
 
 
     //for(i=0; i<=34; i++)
-    for(i=0; i<NOMBRE_ETUDIANTS+5; i++)
+    for(i=0; i<NOMBRE_ETUDIANTS_MAX+5; i++)
     {
         printf("Contenu de la case ayant pour indice %d: %.2lf\n", i, notes[i]);
     }
@@ -40,13 +78,7 @@ int main() {
 
 
 
-
-    return 0;
-}
-
-
-
-
+    */
 
 
 /*
