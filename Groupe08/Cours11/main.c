@@ -35,7 +35,23 @@ double moy_tab2d(int tab[][MAX_COLONNES], int nb_lignes, int nb_colonnes)
  * Elle stocke dans les références ligne et colonne, l'indice de la case où la valeur a été trouvée
  * Si la valeur n'a pas été trouvée, on met -1 dans les références ligne et colonne
  */
-void trouver_val(int val_recherche, int tab2d[][MAX_COLONNES], int nb_lignes, int nb_colonnes, int* ligne, int* colonne);
+void trouver_val(int val_recherchee, int tab2d[][MAX_COLONNES], int nb_lignes, int nb_colonnes, int* ligne, int* colonne)
+{
+    for(int i=0; i<nb_lignes; i++)
+    {
+        for(int j=0; j<nb_colonnes; j++)
+        {
+            if(tab2d[i][j] == val_recherchee)
+            {
+                *ligne = i;
+                *colonne = j;
+                return ;
+            }
+        }
+    }
+    *ligne = -1;
+    *colonne = -1;
+}
 
 int main() {
 
@@ -58,6 +74,20 @@ int main() {
 
 
     printf("La moyenne : %lf\n",  moy_tab2d(tab2_2d, 2, 5) );
+
+    int ligne_pos;
+    int colonne_pos;
+
+    trouver_val(1000, tab2_2d, 2, 5, &ligne_pos, &colonne_pos);
+    if(ligne_pos!=-1 && colonne_pos!=-1)
+    {
+        printf("Valeur trouvée à la ligne %d et colonne %d\n", ligne_pos, colonne_pos);
+    }
+    else
+    {
+        printf("Valeur n'existe pas dans le tableau.\n");
+    }
+
 
     return 0;
 }
