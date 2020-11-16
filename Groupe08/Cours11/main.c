@@ -28,6 +28,15 @@ double moy_tab2d(int tab[][MAX_COLONNES], int nb_lignes, int nb_colonnes)
     return moyenne;
 }
 
+/*  trouver_val
+ * Ecrire une fonction qui reçoit un tableau à 2 dimensions
+ * Et qui retourne l'indice de la première occurence d'une valeur donnée
+ *
+ * Elle stocke dans les références ligne et colonne, l'indice de la case où la valeur a été trouvée
+ * Si la valeur n'a pas été trouvée, on met -1 dans les références ligne et colonne
+ */
+void trouver_val(int val_recherche, int tab2d[][MAX_COLONNES], int nb_lignes, int nb_colonnes, int* ligne, int* colonne);
+
 int main() {
 
     //Tableau à 2 dimensions d'entiers - 4 lignes et 5 colonnes
