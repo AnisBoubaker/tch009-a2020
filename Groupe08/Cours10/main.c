@@ -48,13 +48,23 @@ void minmaxmoy_tab(int tab[], int nb_elts, int* minimum, int* maximum, double* m
  * Permuter le contenu de deux variables.
  */
 
+void swap(int* a, int* b)
+{
+    int temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+
+
 int main() {
 
     int mon_tab[] = {10, 45, 19, 25, 50, 60, 12, 89, 4, 100};
     int minimum;
     int maximum;
     double moyenne;
-    //int saisie;
 
 
     minmaxmoy_tab(mon_tab, 10, &minimum, &maximum, &moyenne);
@@ -63,11 +73,11 @@ int main() {
     printf("Le maximum du tableau: %d\n", maximum);
     printf("La moyenne du tableau: %lf\n", moyenne);
 
-    printf("Saisir une valeur: ");
-    scanf("%d", &saisie);
 
+    swap(&minimum, &maximum);
 
-
+    printf("Le minimum du tableau: %d\n", minimum);
+    printf("Le maximum du tableau: %d\n", maximum);
 
 
     /*double salaire;
