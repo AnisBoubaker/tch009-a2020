@@ -15,14 +15,80 @@ int min_tab(int tab[], int nb_elts);
 int max_tab(int tab[], int nb_elts);
 
 /*
- * Écrire une fonction minmax_tab
+ * Écrire une fonction minmaxmoy_tab
  * qui reçoit un tableau d'entiers en paramètre
  * et retourne la valeur minimale et la valeur
  * maximale.
  */
-//int minmaxmoy_tab(int tab[], int nb_elts, ??? );
+void minmaxmoy_tab(int tab[], int nb_elts, int* minimum, int* maximum, double* moyenne )
+{
+    int i;
+    //int min=tab[0];
+    *minimum = tab[0];
+    *maximum = tab[0];
+    *moyenne = 0;
+    for(i=0; i<nb_elts; i++)
+    {
+        if(tab[i]<*minimum)
+        {
+            *minimum = tab[i];
+        }
+        if(tab[i]>*maximum)
+        {
+            *maximum = tab[i];
+        }
+        *moyenne = *moyenne + tab[i];
+    }
+    *moyenne = *moyenne / nb_elts;
+    //*minimum = min;
+}
+
+/*
+ * Fonction swap
+ * Permuter le contenu de deux variables.
+ */
 
 int main() {
+
+    int mon_tab[] = {10, 45, 19, 25, 50, 60, 12, 89, 4, 100};
+    int minimum;
+    int maximum;
+    double moyenne;
+    //int saisie;
+
+
+    minmaxmoy_tab(mon_tab, 10, &minimum, &maximum, &moyenne);
+
+    printf("Le minimum du tableau: %d\n", minimum);
+    printf("Le maximum du tableau: %d\n", maximum);
+    printf("La moyenne du tableau: %lf\n", moyenne);
+
+    printf("Saisir une valeur: ");
+    scanf("%d", &saisie);
+
+
+
+
+
+    /*double salaire;
+
+    double* salaire_ptr;
+
+
+    salaire_ptr = &salaire;
+
+    //Je veux affecter 100000 à salaire, sans utiliser la variable salaire
+    *salaire_ptr = 100000;
+
+
+
+
+
+
+
+
+
+
     int var2 = 55;
     int var3 = 60;
     double var1 = 10;
@@ -54,7 +120,7 @@ int main() {
     pointeur_vers_entier = &var3;
 
     printf("Contenu: %d\n", *pointeur_vers_entier);
-
+    */
 
 
     /*int tablo[TAILLE_MAX_TABLEAU] = {5, 3, 2, 100, 1000, 25, 75};
