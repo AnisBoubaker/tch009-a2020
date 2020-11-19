@@ -2,7 +2,7 @@
 #include "util_tableaux.h"
 #include "test_util_tableaux.h"
 
-#define MODE_NORMAL
+#define MODE_TEST
 
 #ifdef MODE_NORMAL
 
@@ -23,6 +23,9 @@ int main(void) {
 
     afficher_tab2d(tab_2d, 3,3);
 
+    printf("La moyenne des valeurs: %lf\n",
+           moy_tab2d(tab_2d, 3, 3));
+
     //INTERDIT!!
     //tab_2d[2] = 100;
 
@@ -32,6 +35,7 @@ int main(void) {
 int main(void) {
 
     test_max_tab1d();
+    test_moy_tab2d();
 
     return 0;
 }

@@ -20,5 +20,21 @@ void test_max_tab1d(void)
 
     max_tab1d(tab, 0, &le_max, &indice_max);
     assert( indice_max == -1 );
+}
+
+void test_moy_tab2d(void)
+{
+    int tab[NB_LIGNES][NB_COLONNES] = {
+            {34, 6, 8, 10},
+            {13, 10, 5, 2},
+            {10, 12, 11, 5}
+    };
+
+    //La moyenne devrait être 10.5
+    assert( moy_tab2d(tab, 3, 4) == 10.5 );
+
+    assert( moy_tab2d(tab, 0, 0) == ERREUR_MOYENNE );
+    assert( moy_tab2d(tab, 0, 3) == ERREUR_MOYENNE );
+    assert( moy_tab2d(tab, 3, 0) == ERREUR_MOYENNE );
 
 }

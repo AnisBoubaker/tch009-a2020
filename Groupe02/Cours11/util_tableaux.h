@@ -13,6 +13,7 @@
 #define NB_LIGNES 5     //Nombre de ligne max des tab 2d
 #define NB_COLONNES 10  //Nombre de colonnes max des tab 2d
 
+#define ERREUR_MOYENNE -2000000000
 
 /**
  *
@@ -35,6 +36,6 @@ void afficher_tab2d(int tab2d[][NB_COLONNES],
  * moy_tab2d
  * Calcule retourne la moyenne des éléments d'un tableau 2d d'entiers.
  */
-
+double moy_tab2d(int tab2d[][NB_COLONNES], int nb_lignes, int nb_cols);
 
 #endif //COURS11_UTIL_TABLEAUX_H

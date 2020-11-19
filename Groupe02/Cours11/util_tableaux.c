@@ -18,7 +18,7 @@ void max_tab1d(int tab[], int nb_elts, int* max, int* indice)
 {
     if(nb_elts<=0)
     {
-        *indice = 0;
+        *indice = -1;
         return;
     }
 
@@ -47,4 +47,55 @@ void afficher_tab2d(int tab2d[][NB_COLONNES],
         }
         printf("\n");
     }
+}
+
+double moy_tab2d(int tab2d[][NB_COLONNES],
+                 int nb_lignes,
+                 int nb_cols)
+{
+    double moyenne=0;
+    if(nb_lignes==0 || nb_cols==0)
+    {
+        return ERREUR_MOYENNE;
+    }
+    for(int i=0; i<nb_lignes; i++)
+    {
+        for(int j=0; j<nb_cols; j++)
+        {
+            moyenne+=tab2d[i][j];
+        }
+    }
+    moyenne /= nb_lignes*nb_cols;
+    return moyenne;
+}
+
+/*
+ * Trouver la première occurence de
+ * la valeur maximale du tableau à 2D
+ * ainsi que sa position dans le tableau.
+ * retourne la valeur maximale
+ * stocke la position de la valeur maximale aux références
+ * (adresses) pos_ligne et pos_colonne
+ */
+int max_tab2d(int tab[][NB_COLONNES],
+          int nb_lignes,
+          int nb_cols,
+          int *pos_ligne,
+          int *pos_colonne)
+{
+    int max;
+    max = tab[0][0];
+    for(int i=0; i<nb_lignes; i++)
+    {
+        for(int j=0; j<nb_cols; j++)
+        {
+            if(tab[i][j]>max)
+            {
+                max = tab[i][j];
+                *pos_ligne = i;
+                *pos_colonne = j;
+            }
+        }
+    }
+    return max;
 }

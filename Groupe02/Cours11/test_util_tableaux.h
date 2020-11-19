@@ -12,7 +12,7 @@
 
 void test_max_tab1d(void) ;
 
-
+void test_moy_tab2d(void);
 
 
 #endif //COURS11_TEST_UTIL_TABLEAUX_H
