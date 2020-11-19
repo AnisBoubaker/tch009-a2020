@@ -111,12 +111,19 @@ void stats_tab(int tab[], int nb_elts,
     *moy_ptr = moyenne;
 }
 
+
+void swap(int* a1, int* a2)
+{
+    int temp;
+    temp = *a1;
+    *a1 = *a2;
+    *a2 = temp;
+}
+
 /*
  * Écrire une fonction SWAP
  * qui permet d'inverser le contenu de deux variables
  */
-
-
 int main() {
     int tab[] = {10, 5, 3, 8, 2, 10, 50, 23, 7, 5};
     int min; //son adresse a1
@@ -125,6 +132,13 @@ int main() {
 
     int a = 10;
     int b = 20;
+
+    printf("a= %d, b=%d\n", a, b);
+    swap(&a, &b);
+    printf("a= %d, b=%d\n", a, b);
+
+    //scanf("%d", &a);
+
     //Appeler la fonction swap
     printf("%d, %d \n", a, b); //Affiche 20 et 10
 
