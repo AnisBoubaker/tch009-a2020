@@ -6,8 +6,10 @@
 
 #ifdef MODE_NORMAL
 
+
+
 int main(void) {
-    int tab_2d[5][10] = { {5, 7, 34},
+    int tab_2d[NB_LIGNES][NB_COLONNES] = { {5, 7, 34},
                           {2, 3},
                           {5, 6}};
 
@@ -18,6 +20,8 @@ int main(void) {
 
     tab_2d[2][3] = 8;
     printf("Contenu de la case 2,3: %d\n", tab_2d[2][3]);
+
+    afficher_tab2d(tab_2d, 3,3);
 
     //INTERDIT!!
     //tab_2d[2] = 100;

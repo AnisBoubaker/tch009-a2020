@@ -16,9 +16,6 @@
  */
 void max_tab1d(int tab[], int nb_elts, int* max, int* indice)
 {
-    *max;
-    *indice;
-
     if(nb_elts<=0)
     {
         *indice = 0;
@@ -34,5 +31,20 @@ void max_tab1d(int tab[], int nb_elts, int* max, int* indice)
             *max = tab[i];
             *indice = i;
         }
+    }
+}
+
+
+void afficher_tab2d(int tab2d[][NB_COLONNES],
+                    int nb_cols,
+                    int nb_lignes)
+{
+    for(int ligne=0; ligne<nb_lignes; ligne++)
+    {
+        for(int colonne=0; colonne<nb_cols; colonne++)
+        {
+            printf("%d\t", tab2d[ligne][colonne]);
+        }
+        printf("\n");
     }
 }
