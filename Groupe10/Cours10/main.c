@@ -80,16 +80,74 @@ void minmax_tab(int tableau[], int nb_elts, int resultats[2])
  * - le min
  * - le max
  * - la moyenne
- * - ecart type
  */
-//void stats_tab(int tab[], int nb_elts, int min_max[], double moy_et[]);
+void stats_tab(int tab[], int nb_elts,
+               int* min_ptr, int* max_ptr,
+               double* moy_ptr)
+{
+    int min, max;
+    double moyenne;
+    int i;
 
+    min = tab[0];
+    max = tab[0];
+    moyenne = tab[0];
+    for(i=1; i<nb_elts; i++)
+    {
+        if(tab[i]<min)
+        {
+            min = tab[i];
+        }
+        if(tab[i]>max)
+        {
+            max = tab[i];
+        }
+        moyenne += tab[i];
+    }
+    moyenne /= nb_elts;
 
+    *min_ptr = min;
+    *max_ptr = max;
+    *moy_ptr = moyenne;
+}
+
+/*
+ * Écrire une fonction SWAP
+ * qui permet d'inverser le contenu de deux variables
+ */
 
 
 int main() {
+    int tab[] = {10, 5, 3, 8, 2, 10, 50, 23, 7, 5};
+    int min; //son adresse a1
+    int max; //son adresse a2
+    double moyenne; //son adresse : a3
+
+    int a = 10;
+    int b = 20;
+    //Appeler la fonction swap
+    printf("%d, %d \n", a, b); //Affiche 20 et 10
+
+    //stat_tab(tab, 10, a1, a2, a3)
+    stats_tab(tab, 10, &min, &max, &moyenne);
+
+    printf("Le mimimum: %d\n", min);
+    printf("Le maximum: %d\n", max);
+    printf("La moyenne: %lf\n", moyenne);
 
 
+
+
+
+
+
+
+
+
+
+
+
+    /*
     double une_var_reelle = 10.4;
     int une_var=10;
     int* adresse_une_var;
@@ -111,7 +169,7 @@ int main() {
     *adresse_une_var = 150;
 
     printf("Contenu de une_var: %d\n", une_var);
-
+    */
     return 0;
 }
 
