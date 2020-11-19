@@ -1,34 +1,32 @@
 #include <stdio.h>
-#define MAX_LIGNES 4
-#define MAX_COLONNES 6
+#include "utilitaires_tab2d.h"
+#include <assert.h>
 
-int main() {
-    //Exemple de tableau à une dimension
-    int tab_1d[10] = {23, 5, 10, 5};
+int test_moyennne_tab_2d(void)
+{
+    double moyenne;
 
-    //Tableau à deux dimensions
     //de 4 lignes et 6 colonnes
-    int tab_2d[MAX_LIGNES][MAX_COLONNES] = { {23, 5, 10, 5} ,
-                         {10, 3, 4},
-                         {5, 12} };
+    int tab_2d[MAX_LIGNES][MAX_COLONNES] = { {12, 6, 3, 3} ,
+                                             {6, 6, 12},
+                                             {12, 12} };
 
-    printf("Valeur de la case 1, 2: %d\n", tab_2d[1][2]);
-    printf("Valeur de la case 2, 1: %d\n", tab_2d[2][1]);
-    printf("Valeur de la case 3, 2: %d\n", tab_2d[3][2]);
+    //Le résultat devrait être 3.
+    moyenne = moyenne_tab2d(tab_2d, 4, 6);
 
-    tab_2d[2][4] = 10;
+    assert( moyenne == 3 );
 
-    for(int ligne=0; ligne < MAX_LIGNES; ligne++)
-    {
-        //ligne = 1
-        for(int colonne=0; colonne<MAX_COLONNES; colonne++)
-        {
-            //colonne =2
-            printf("%d\t", tab_2d[ligne][colonne]);
-        }
-        printf("\n");
-    }
+    moyenne = moyenne_tab2d(tab_2d, 2, 2);
 
+    assert( moyenne == 7.5 );
+
+    return 1;
+    //printf("La moyenne des valeurs: %lf\n", moyenne);
+}
+
+int main(void) {
+
+    test_moyennne_tab_2d();
 
     return 0;
 }
