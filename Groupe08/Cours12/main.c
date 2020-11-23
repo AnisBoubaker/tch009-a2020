@@ -3,7 +3,6 @@
 #define TAILLE_MAX_CHAINE 250
 
 int main() {
-    int a =10;
     //(5, 15, 20, 35)
     int tab[10] = {5, 15, 20, 35};
 
