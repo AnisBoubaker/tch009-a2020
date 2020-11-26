@@ -3,9 +3,39 @@
 
 #define MAX_SAISIE 250
 
+int taille_chaine(const char* chaine);
+
+int taille_chaine(const char chaine[])
+{
+    int taille = 0;
+    while(chaine[taille]!='\0')
+    {
+        taille++;
+    }
+
+    return taille;
+}
+
+int taille_chaine_sans_espaces(const char chaine[])
+{
+    int i = 0;
+    int taille=0;
+    while(chaine[i]!='\0')
+    {
+        if(chaine[i]!=' ')
+        {
+            taille++;
+        }
+        i++;
+    }
+
+    return taille;
+}
+
 int main() {
     char nom[MAX_SAISIE];
     int taille_saisie;
+    int taille_calculee;
 
     printf("Veuillez saisir votre nom: ");
     //La lecture s'arrête dès qu'un caractère vide est rencontré:
@@ -16,6 +46,12 @@ int main() {
 
     //Ecrire le code permettant de calculer la taille de la chaine
     //de caractères "nom"
+    taille_calculee=0;
+    while(nom[taille_calculee]!='\0')
+    {
+        taille_calculee++;
+    }
+    printf("La taille calculée: %d\n", taille_calculee);
 
 
     //nom[10] = '\0';
