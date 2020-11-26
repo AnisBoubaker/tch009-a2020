@@ -22,13 +22,62 @@ int taille_chaine(const char chaine[])
     //chaine[0] = 'A';
     return taille;
 }
+//void copie_chaine(char destination[], const char source[])
+void copie_chaine(char* destination, const char* source)
+{
+    int i;
+    for(i=0; source[i]!='\0'; i++)
+    {
+        destination[i] = source[i];
+    }
+    destination[i] = '\0';
+}
+
+void concatener_chaine(char* dest, const char* src, int max_car);
 
 
 int main() {
+    char nom[MAX_SAISIE];
+    char prenom[MAX_SAISIE];
+
+    //Chaine qui va contenir la concaténation du nom et du prénom
+    char nom_prenom[2*MAX_SAISIE];
+
+    printf("Entrez votre prénom: ");
+    fgets(prenom, MAX_SAISIE, stdin);
+    prenom[ strlen(prenom)-1 ] = '\0';
+
+    printf("Entrez votre nom: ");
+    fgets(nom, MAX_SAISIE, stdin);
+    nom[ strlen(nom)-1 ] = '\0';
+
+    //Valjean, Jean
+    strncpy(nom_prenom, nom, MAX_SAISIE); //Valjean
+    strncat(nom_prenom, ", ", MAX_SAISIE); //Valjean,
+    strncat(nom_prenom, prenom, 2*MAX_SAISIE-strlen(nom_prenom));
+
+    printf("Nom et prénom: %s\n", nom_prenom);
+
+
+    return 0;
+}
+
+
+
+
+
+
+
+/*
     //Déclarer une chaine de caractères:
     //char une_chaine[8] = {'B', 'o', 'n', 'j', 'o', 'u', 'r', '\0'};
     char une_chaine[9] = "Bonjour\n";
+
     char saisie[MAX_SAISIE];
+    char saisie_copie[MAX_SAISIE];
+    char saisie_copie_2[MAX_SAISIE];
+
+
     int taille;
     int taille_calculee;
     int i;
@@ -48,22 +97,19 @@ int main() {
     printf("Taille de la chaine saisie: %d\n", taille);
 
     //Calculer de la chaine de caractères sans utiliser strlen.
-    /*taille_calculee=0;
-    i=0;
-    while(saisie[i]!='\0')
-    {
-        taille_calculee++;
-        i++;
-    }*/
     taille_calculee = taille_chaine(saisie);
     printf("Taille de la saisie, calculée sans strlen: %d\n", taille_calculee);
-
 
     //Écraser le \n avec un \0:
     saisie[strlen(saisie) - 1] = '\0';
 
-    printf("%s\n", saisie);
-    printf("Programme terminé!");
+    printf("Contenu de la chaine saisie: %s\n", saisie);
 
-    return 0;
-}
+    //Copier la chaine de caractères dans une autre
+    //strcpy : String Copy
+    strncpy(saisie_copie, saisie, 5);
+    printf("Contenu de la copie: %s\n", saisie_copie);
+
+    copie_chaine(saisie_copie_2, saisie);
+    printf("Contenu de la copie #2: %s\n", saisie_copie_2);
+    */
