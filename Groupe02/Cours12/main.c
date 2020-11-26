@@ -33,12 +33,84 @@ void copie_chaine(char* destination, const char* source)
     destination[i] = '\0';
 }
 
-void concatener_chaine(char* dest, const char* src, int max_car);
+void concatener_chaine(char* dest, const char* src, int max_car)
+{
+    int i;
+    unsigned long debut_copie = strlen(dest);
+    unsigned long taille_src = strlen(src);
 
+    for(i=0; i<=taille_src && i<=max_car; i++)
+    {
+        dest[i+debut_copie] = src[i];
+    }
+}
 
 int main() {
-    char nom[MAX_SAISIE];
+    char chaine_saisie[MAX_SAISIE];
+    int entier_saisi;
+    char chaine_resultante[MAX_SAISIE];
+
+    printf("Saisie le jour: ");
+    fgets(chaine_saisie,MAX_SAISIE, stdin);
+    chaine_saisie[ strlen(chaine_saisie)-1 ] = '\0';
+
+    //atoi est dans stdlib
+    entier_saisi = atoi(chaine_saisie);
+    //atof convertir une chaine de caractères en valeur réelle.
+    printf("%d\n\n\n\n", entier_saisi+10);
+
+    sprintf(chaine_resultante, "Nous sommes le %s e jour du mois %d de l'année %d\n", chaine_saisie, 11, 2020);
+
+    printf("%s", chaine_resultante);
+
+    return 0;
+}
+
+/*
+ char nom[MAX_SAISIE];
     char prenom[MAX_SAISIE];
+
+    char chaine1[] = "efga";
+    char chaine2[] = "efga";
+    int resultat_comparaison;
+
+
+    resultat_comparaison = strcmp(chaine1, chaine2);
+    if(resultat_comparaison>0)
+    {
+        printf("Chaine 1 est plus grande que chaine 2.\n");
+    }
+    else if(resultat_comparaison<0)
+    {
+        printf("Chaine 1 est plus petite que chaine 2.\n");
+    }
+    else
+    {
+        printf("Chaine1 et chaine2 sont identiques.\n");
+    }
+
+    //Ne jamais comparer comme ceci:
+    //chaine1 == chaine2
+    if( strcmp(chaine1, chaine2)==0 )
+    {
+        printf("Les deux chaines sont identiques!");
+    }
+    else
+    {
+        printf("Elles sont différentes!");
+    }
+
+
+    //Ne jamais faire ceci:
+    //chaine1 = "Bonjour!";
+    strcpy(chaine1, "Bonjour!");
+
+
+ */
+
+
+
+/*
 
     //Chaine qui va contenir la concaténation du nom et du prénom
     char nom_prenom[2*MAX_SAISIE];
@@ -53,15 +125,12 @@ int main() {
 
     //Valjean, Jean
     strncpy(nom_prenom, nom, MAX_SAISIE); //Valjean
-    strncat(nom_prenom, ", ", MAX_SAISIE); //Valjean,
-    strncat(nom_prenom, prenom, 2*MAX_SAISIE-strlen(nom_prenom));
+    concatener_chaine(nom_prenom, ", ", MAX_SAISIE); //Valjean,
+    concatener_chaine(nom_prenom, prenom, 2*MAX_SAISIE-strlen(nom_prenom));
 
     printf("Nom et prénom: %s\n", nom_prenom);
 
-
-    return 0;
-}
-
+ */
 
 
 
