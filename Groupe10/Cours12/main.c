@@ -32,8 +32,62 @@ int taille_chaine_sans_espaces(const char chaine[])
     return taille;
 }
 
+void copie_chaine(char* dest, const char* src)
+{
+    int i;
+    for(i=0; src[i]!='\0'; i++)
+    {
+        dest[i] = src[i];
+    }
+    dest[i]='\0';
+}
+
+
+void chaine_concat(char* dest, const char* src);
+
+
+
 int main() {
-    char nom[MAX_SAISIE];
+    char chaine1[MAX_SAISIE] = "Bonjour";
+    char chaine2[] = " tout le monde!";
+
+    strcat(chaine1, chaine2);
+
+    printf("%s", chaine1);
+
+
+
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+/*char une_chaine[] = "Bonjour le monde!";
+    char copie[MAX_SAISIE];
+
+    strncpy(copie, une_chaine,MAX_SAISIE);
+    printf("%s\n", copie);
+    //Interdit
+    //copie = une_chaine;
+
+    //Interdit: possible uniquement lors de l'initialisation
+    //de la chaine de caractères.
+    //
+    // copie = "Bonjour!";
+    strncpy(copie, "Bonjour!", MAX_SAISIE);
+    printf("%s\n", copie);
+
+    */
+
+
+/*char nom[MAX_SAISIE];
     int taille_saisie;
     int taille_calculee;
 
@@ -65,9 +119,9 @@ int main() {
 
     nom[ taille_saisie - 1] = '\0';
     printf("Vous avez saisi: %s\n", nom);
-    printf("Fin du programme!");
-    return 0;
-}
+    printf("Fin du programme!");*/
+
+
 
 
 /*//char premiere_chaine[8] = {'B', 'o', 'n', 'j','o','u','r','\0'};
