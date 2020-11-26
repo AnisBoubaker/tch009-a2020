@@ -1,10 +1,95 @@
 #include <stdio.h>
+#include "chaines.h"
+#include <string.h>
 
-#define TAILLE_MAX_CHAINE 250
+#define TAILLE_MAX_CHAINE 100
+
 
 //double moyenne(int tab[], int nb_elts);
 
+//#define MODE_NORMAL
+
+#ifdef MODE_NORMAL
+
 int main() {
+
+    int age = 25;
+    double salaire = 100005.50;
+    char resultat[TAILLE_MAX_CHAINE];
+
+    //printf("Bonjour, vous avez %d ans, et vous gagnez %.2lf $/annee\n", age, salaire);
+
+    sprintf(resultat, "Bonjour, vous avez %d ans, et vous gagnez %.2lf $/annee\n", age, salaire);
+
+    printf("%s", resultat);
+
+
+    /*char prenom[TAILLE_MAX_CHAINE];
+    char nom[TAILLE_MAX_CHAINE];
+    char nom_prenom[TAILLE_MAX_CHAINE*2];
+
+    printf("Veuillez saisir votre prénom: ");
+    fgets(prenom,TAILLE_MAX_CHAINE, stdin);
+    prenom[ strlen(prenom)-1 ] = '\0';
+
+    printf("Veuillez saisir votre nom: ");
+    fgets(nom,TAILLE_MAX_CHAINE, stdin);
+    nom[ strlen(nom)-1 ] = '\0';
+
+    strncpy(nom_prenom, prenom, TAILLE_MAX_CHAINE);
+    strncat(nom_prenom, " ", TAILLE_MAX_CHAINE*2);
+    strncat(nom_prenom, nom, TAILLE_MAX_CHAINE*2);
+
+    printf("Nom et prénom: %s", nom_prenom);
+
+    */
+
+    return 0;
+}
+
+#else
+int main(void)
+{
+    test_nim_init_plateau();
+
+}
+
+#endif
+
+
+
+
+/*char bonjour[]="Bonjour tout le monde!";
+    char chaine_saisie[TAILLE_MAX_CHAINE];
+    char copie_saisie[TAILLE_MAX_CHAINE];
+
+
+    printf("La chaine initiale: %s\n", bonjour);
+    printf("La taille est: %d\n", nb_caracteres(bonjour) );
+    printf("La taille est: %d (avec strlen)\n", strlen(bonjour)  );
+
+
+    printf("Veuillez saisir une chaine de caractères: ");
+    //Attention: ne pas mettre le & car chaine_saisie est un tableau
+    //Tout tableau est un pointeur (donc une adresse)
+    //scanf("%s", chaine_saisie);
+    //Le scanf arrête la lecture au premier caractère "vide" (espace, tabulation, Enter)
+
+    fgets(chaine_saisie, TAILLE_MAX_CHAINE, stdin);
+    //Supprimer le \n supreflu qui a été lu par fgets.
+    chaine_saisie[ strlen(chaine_saisie)-1 ] = '\0';
+
+    printf("Chaine qui a été saisie: %s\n", chaine_saisie);
+
+    //strcpy(copie_saisie, chaine_saisie);
+    strncpy(copie_saisie, chaine_saisie, TAILLE_MAX_CHAINE);
+    printf("La copie de la chaine: %s", copie_saisie);
+    */
+
+
+/*
+ *
+
     //(5, 15, 20, 35)
     int tab[10] = {5, 15, 20, 35};
 
@@ -60,12 +145,11 @@ int main() {
 
 
 
-    /*for(int i=0; i<7; i++)
+    for(int i=0; i<7; i++)
     {
         printf("%c", une_chaine[i]);
-    }*/
+    }
 
 
 
-    return 0;
-}
+*/
