@@ -32,11 +32,32 @@ int chercher(int tab[], int nbelt, int val, int resultat[])
 
 void dons_journaliers(double tab_dons[][MAX_COLS], int nb_jours, double resultat[])
 {
-
+    for(int i=0; i<nb_jours; i++)
+    {
+        resultat[i] = 0;
+        for(int j=1; j<=tab_dons[i][0]; j++)
+        {
+            resultat[i] += tab_dons[i][j];
+        }
+    }
 }
 
 int main() {
-    int tableau[NB_VALS_MAX] = {1,8,2,1,5,3,8,1,2};
+    double liste_dons[][MAX_COLS] = { {3, 20, 15, 105.23},
+                                      {2, 15, 100.50},
+                                      {1, 20},
+                                      {4, 12.50, 10, 60, 5.25}};
+    double somme_dons[4];
+
+    dons_journaliers(liste_dons, 4, somme_dons);
+
+    printf("Somme des dons: \n");
+    for(int i=0; i<4; i++)
+    {
+        printf("Jour %d: %lf\n", i, somme_dons[i]);
+    }
+
+    /*int tableau[NB_VALS_MAX] = {1,8,2,1,5,3,8,1,2};
     int occurences[NB_VALS_MAX];
     int nb_occurences;
 
@@ -51,7 +72,7 @@ int main() {
     } else {
         printf("La valeur ne se trouve pas dans le tableau!");
     }
-
+    */
 
     /*char phrase[TAILLE_MAX_CH];
     char masque[TAILLE_MAX_CH];
