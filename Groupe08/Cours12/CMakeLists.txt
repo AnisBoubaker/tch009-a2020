@@ -3,4 +3,4 @@ project(Cours12 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Cours12 main.c chaines.c chaines.h nim_ihm.h nim_ihm.c)
+add_executable(Cours12 main.c chaines.c chaines.h)

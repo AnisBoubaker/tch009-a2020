@@ -43,18 +43,53 @@ void copie_chaine(char* dest, const char* src)
 }
 
 
-void chaine_concat(char* dest, const char* src);
+void chaine_concat(char* dest, const char* src)
+{
+    int pos_dest;
+    int pos_src;
 
+
+    pos_dest = strlen(dest);
+
+    for( pos_src = 0 ; src[pos_src]!='\0'; pos_src++)
+    {
+        dest[pos_dest] = src[pos_src];
+        pos_dest++;
+    }
+    dest[pos_dest] = '\0';
+}
 
 
 int main() {
-    char chaine1[MAX_SAISIE] = "Bonjour";
-    char chaine2[] = " tout le monde!";
+    char chaine1[MAX_SAISIE];
+    char chaine2[MAX_SAISIE];
+    int resultat_comparaison;
 
-    strcat(chaine1, chaine2);
 
-    printf("%s", chaine1);
+    strncpy(chaine1, "Bonjour!", MAX_SAISIE);
 
+
+    printf("Saisir la première chaine: ");
+    fgets(chaine1, MAX_SAISIE, stdin);
+    chaine1[strlen(chaine1)-1]='\0';
+
+    printf("Saisir la deuxième chaine: ");
+    fgets(chaine2, MAX_SAISIE, stdin);
+    chaine2[strlen(chaine2)-1]='\0';
+
+    resultat_comparaison = strcmp(chaine1, chaine2);
+    if(resultat_comparaison<0)
+    {
+        printf("La première chaine est plus petite!\n");
+    }
+    else if(resultat_comparaison>0)
+    {
+        printf("La première chaine est plus grande!\n");
+    }
+    else
+    {
+        printf("Les deux chaines sont identiques!\n");
+    }
 
 
 

@@ -1,19 +1,59 @@
 #include <stdio.h>
 #include "chaines.h"
 #include <string.h>
+#include <stdlib.h>
 
 #define TAILLE_MAX_CHAINE 100
 
 
 //double moyenne(int tab[], int nb_elts);
 
-//#define MODE_NORMAL
+#define MODE_NORMAL
 
 #ifdef MODE_NORMAL
 
-int main() {
+int est_nombre(const char chaine[])
+{
+    for(int i=0; chaine[i]!='\0'; i++)
+    {
+        if(chaine[i]<'0' || chaine[i]>'9')
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 
-    int age = 25;
+int main() {
+    char saisie[TAILLE_MAX_CHAINE];
+    int valeur_num;
+
+
+    printf("Saisir une valeur: ");
+    fgets(saisie, TAILLE_MAX_CHAINE, stdin);
+    saisie[ strlen(saisie)-1 ] = '\0';
+
+    //À ne jamais faire!!
+    //valeur_num = (int)saisie;
+
+    if( est_nombre(saisie) )
+    {
+        valeur_num = atoi(saisie);
+
+
+        printf("Valeur numérique saisie: %d\n", valeur_num);
+        valeur_num+=10;
+        printf("Valeur résultante: %d\n", valeur_num);
+    }
+    else
+    {
+        printf("La valeur saisie n'est pas un nombre!\n");
+    }
+
+
+    // "100"
+
+    /*int age = 25;
     double salaire = 100005.50;
     char resultat[TAILLE_MAX_CHAINE];
 
@@ -22,7 +62,7 @@ int main() {
     sprintf(resultat, "Bonjour, vous avez %d ans, et vous gagnez %.2lf $/annee\n", age, salaire);
 
     printf("%s", resultat);
-
+    */
 
     /*char prenom[TAILLE_MAX_CHAINE];
     char nom[TAILLE_MAX_CHAINE];
@@ -50,8 +90,6 @@ int main() {
 #else
 int main(void)
 {
-    test_nim_init_plateau();
-
 }
 
 #endif
