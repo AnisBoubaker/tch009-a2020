@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_SAISIE 250
 
@@ -61,7 +62,29 @@ void chaine_concat(char* dest, const char* src)
 
 
 int main() {
-    char chaine1[MAX_SAISIE];
+
+    char chaine[MAX_SAISIE];
+    char nom[] = "Anis";
+    int age = 38;
+
+    char test[] = "101";
+    int val_entiere;
+
+    val_entiere = atoi(test);
+    val_entiere++;
+
+    //atof
+
+    printf("%d", val_entiere);
+
+
+    //Dans chaine: "Bonjour je m'appelle Anis, j'ai 38 ans"
+    //printf("Bonjour, je m'appelle %s et j'ai %d ans", nom, age);
+
+    //sprintf(chaine, "Bonjour, je m'appelle %s et j'ai %d ans", nom, age);
+    //printf("%s\n", chaine);
+
+    /*char chaine1[MAX_SAISIE];
     char chaine2[MAX_SAISIE];
     int resultat_comparaison;
 
@@ -90,7 +113,7 @@ int main() {
     {
         printf("Les deux chaines sont identiques!\n");
     }
-
+    */
 
 
     return 0;
