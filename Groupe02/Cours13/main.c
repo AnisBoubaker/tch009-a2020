@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define MAX_COLS 100
 
@@ -20,6 +22,10 @@ void dons_journaliers(const double dons[][MAX_COLS], int nb_jours, double sommes
     }
 }
 
+int nb_aleatoire(int min, int max)
+{
+    return min + (int)(rand() / (RAND_MAX + 0.001) * (max - min + 1));
+}
 
 /*
  * Écrire une fonction qui génère un mot de passe
@@ -30,12 +36,34 @@ void dons_journaliers(const double dons[][MAX_COLS], int nb_jours, double sommes
  * - La taille du mot de passe
  * - Le tableau de caractères où le mot de passe sera stocké
  */
-
+void generer_pass(int taille, char mot_de_passe[])
+{   /*
+     * taille = 4
+     *   0 1 2 3
+     * [ a ; x B ]
+     */
+    for(int i=0; i<taille; i++)
+    {
+        //mot_de_passe[i] = 'A'; // mot_de_passe[i] = 65;
+        mot_de_passe[i] = nb_aleatoire(48, 122);
+    }
+    mot_de_passe[taille] = '\0';
+}
 
 
 int main() {
+    char pass[MAX_COLS];
 
-    double liste_dons[4][MAX_COLS] = { {3,20,15,105.23},
+    srand((unsigned int)time(NULL));
+    rand();
+
+    generer_pass(10, pass);
+
+    printf("%s\n", pass);
+
+
+
+    /*double liste_dons[4][MAX_COLS] = { {3,20,15,105.23},
                                {2, 15, 100.50},
                                {1, 20},
                                {4,12.50,10, 60, 5.25}};
@@ -47,7 +75,7 @@ int main() {
     for(int i=0; i<4; i++)
     {
         printf("%lf\n", sommes[i]);
-    }
+    }*/
 
     /*
     char chaine_initiale[] = "Allo toi!";
